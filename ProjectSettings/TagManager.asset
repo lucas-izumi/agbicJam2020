@@ -7,6 +7,13 @@ TagManager:
   - Red Button
   - BlueB
   - YellowB
+  - Green Button
+  - Yellow Button
+  - Blue Button
+  - Gray Button
+  - solver
+  - BoardManager
+  - gameblock
   layers:
   - Default
   - TransparentFX
