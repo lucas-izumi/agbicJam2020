@@ -62,7 +62,7 @@ public class BlockClass : MonoBehaviour
     private GameObject GetAdjacent(Vector2 castDir)
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, castDir);
-        Debug.DrawRay(transform.position, castDir, Color.green);
+        //Debug.DrawRay(transform.position, castDir, Color.green);
         if (hit.collider != null)
         {
             //Debug.Log(hit.collider.gameObject.name + ", " + hit.collider.gameObject.transform.position.x + ", " + hit.collider.gameObject.transform.position.y);
@@ -85,11 +85,11 @@ public class BlockClass : MonoBehaviour
     private List<GameObject> FindMatch(Vector2 castDir)
     {
         List<GameObject> matchingTiles = new List<GameObject>();
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, castDir);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, castDir, 1.0F);
         while (hit.collider != null && hit.collider.GetComponent<SpriteRenderer>().sprite == render.sprite)
         {
             matchingTiles.Add(hit.collider.gameObject);
-            hit = Physics2D.Raycast(hit.collider.transform.position, castDir);
+            hit = Physics2D.Raycast(hit.collider.transform.position, castDir, 1.0F);
         }
         return matchingTiles;
     }
@@ -119,6 +119,7 @@ public class BlockClass : MonoBehaviour
         if (matchFound)
         {
             render.sprite = null;
+            Destroy(this.gameObject.GetComponent<Collider2D>());
             matchFound = false;
         }
     }
