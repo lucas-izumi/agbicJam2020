@@ -33,26 +33,25 @@ public class BlockClass : MonoBehaviour
             Collider2D hitCollider = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(pos));
             if (hitCollider != null && hitCollider.gameObject.transform == transform)
             {
-                SpriteRenderer spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
                 if (gameConfig.GetCurrentColor() == "red")
                 {
-                    spriteRenderer.sprite = redSprite;
+                    render.sprite = redSprite;
                 }
                 else if (gameConfig.GetCurrentColor() == "yellow")
                 {
-                    spriteRenderer.sprite = yellowSprite;
+                    render.sprite = yellowSprite;
                 }
                 else if (gameConfig.GetCurrentColor() == "green")
                 {
-                    spriteRenderer.sprite = greenSprite;
+                    render.sprite = greenSprite;
                 }
                 else if (gameConfig.GetCurrentColor() == "blue")
                 {
-                    spriteRenderer.sprite = blueSprite;
+                    render.sprite = blueSprite;
                 }
                 else if (gameConfig.GetCurrentColor() == "gray")
                 {
-                    spriteRenderer.sprite = graySprite;
+                    render.sprite = graySprite;
                 }
                 gameConfig.SetCurrentColor("none");
             }
@@ -102,6 +101,7 @@ public class BlockClass : MonoBehaviour
         {
             for (int i = 0; i < matchingTiles.Count; i++)
             {
+                gameConfig.BlocksDestroyed++;
                 Destroy(matchingTiles[i]);
             }
             matchFound = true;
@@ -118,9 +118,17 @@ public class BlockClass : MonoBehaviour
         ClearMatch(new Vector2[2] { Vector2.up, Vector2.down });
         if (matchFound)
         {
-            render.sprite = null;
-            Destroy(this.gameObject.GetComponent<Collider2D>());
             matchFound = false;
+            gameConfig.BlocksDestroyed++;
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void ClearIfGray()
+    {
+        if (render.sprite == graySprite)
+        {
+            Destroy(this.gameObject);
         }
     }
 }
