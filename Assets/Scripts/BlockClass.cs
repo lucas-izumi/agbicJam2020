@@ -13,6 +13,7 @@ public class BlockClass : MonoBehaviour
 
     private SpriteRenderer render;
     private Vector2[] adjacentDirections = new Vector2[] { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
+    private AudioSource audioData;
 
     void Awake()
     {
@@ -23,6 +24,7 @@ public class BlockClass : MonoBehaviour
     {
         GameObject Board = GameObject.FindGameObjectWithTag("BoardManager");
         gameConfig = (GameConfig)Board.GetComponent(typeof(GameConfig));
+        audioData = (AudioSource)Board.GetComponent(typeof(AudioSource));
     }
 
     void Update()
@@ -104,6 +106,7 @@ public class BlockClass : MonoBehaviour
                 gameConfig.BlocksDestroyed++;
                 Destroy(matchingTiles[i]);
             }
+            audioData.Play();
             matchFound = true;
         }
     }
