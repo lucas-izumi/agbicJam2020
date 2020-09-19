@@ -1,11 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dr Bon Bon Puzzle", "Dr Bon Bon Puzzle.csproj", "{508519DB-D053-0EE9-F566-16DFACE223FA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dr Bon Bon Puzzle.Editor", "Dr Bon Bon Puzzle.Editor.csproj", "{E3D1C939-FA65-B65A-286A-238995E8117F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{1F897718-6C8F-DF68-640D-8B345AC74574}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,19 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{508519DB-D053-0EE9-F566-16DFACE223FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{508519DB-D053-0EE9-F566-16DFACE223FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{508519DB-D053-0EE9-F566-16DFACE223FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{508519DB-D053-0EE9-F566-16DFACE223FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E3D1C939-FA65-B65A-286A-238995E8117F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3D1C939-FA65-B65A-286A-238995E8117F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3D1C939-FA65-B65A-286A-238995E8117F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3D1C939-FA65-B65A-286A-238995E8117F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F897718-6C8F-DF68-640D-8B345AC74574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F897718-6C8F-DF68-640D-8B345AC74574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F897718-6C8F-DF68-640D-8B345AC74574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F897718-6C8F-DF68-640D-8B345AC74574}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6F493249-FB83-4D99-8C8E-C081680D4053}
 	EndGlobalSection
 EndGlobal
