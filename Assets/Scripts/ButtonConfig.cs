@@ -7,7 +7,14 @@ public class ButtonConfig : MonoBehaviour
     public GameConfig gameConfig;
     public string color;
     public string buttontag;
+    private SpriteRenderer render;
+    public Sprite btnPressedColors;
+    public Sprite btnNoButton;
 
+    private void Start()
+    {
+        render = GetComponent<SpriteRenderer>();
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -17,6 +24,7 @@ public class ButtonConfig : MonoBehaviour
             if (hitCollider != null && hitCollider.CompareTag(buttontag))
             {
                 gameConfig.SetCurrentColor(color);
+                render.sprite = btnPressedColors;
                 //Debug.Log("Color set: " + color);
             }
         }

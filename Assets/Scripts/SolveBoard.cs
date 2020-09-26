@@ -10,6 +10,8 @@ public class SolveBoard : MonoBehaviour
     private int blockCount;
     private Delay delay;
     private float interval;
+    private SpriteRenderer render;
+    public Sprite btnPressedSprite;
 
     private void Start()
     {
@@ -17,6 +19,7 @@ public class SolveBoard : MonoBehaviour
         startMatching = false;
         delay = new Delay(1.0f);
         interval = 0F;
+        render = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -27,6 +30,7 @@ public class SolveBoard : MonoBehaviour
             Collider2D hitCollider = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(pos));
             if (hitCollider != null && hitCollider.CompareTag(buttontag))
             {
+                render.sprite = btnPressedSprite;
                 startMatching = true;
                 delay.Reset();
             }
