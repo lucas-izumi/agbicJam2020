@@ -1,20 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameConfig : MonoBehaviour
 {
     public string CurrentColor;
     public int BlocksDestroyed;
-    private string CurrentLevel;
-    private int CurrentPoints;
+    public Text CurrentLevel;
+    public Text CurrentPoints;
+    public int Level;
+    public int Points;
 
     void Start()
     {
         CurrentColor = "none";
         BlocksDestroyed = 0;
-        CurrentPoints = 0;
-        CurrentLevel = "Level 1";
+        Level = 1;
+        CurrentLevel.text = "Level " + Level.ToString();
+        CurrentPoints.text = Points.ToString();
     }
 
     public void SetCurrentColor(string color)
