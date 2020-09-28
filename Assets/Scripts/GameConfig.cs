@@ -17,7 +17,7 @@ public class GameConfig : MonoBehaviour
         CurrentColor = "none";
         BlocksDestroyed = 0;
         Level = 1;
-        CurrentLevel.text = "Level " + Level.ToString();
+        CurrentLevel.text = "LEVEL " + Level.ToString();
         CurrentPoints.text = Points.ToString();
     }
 

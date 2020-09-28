@@ -27,7 +27,7 @@ public class ButtonConfig : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && disabled == false)
+        if (Input.GetMouseButtonDown(0) && disabled == false && gameConfig.GetCurrentColor() == "none")
         {
             Vector3 pos = Input.mousePosition;
             Collider2D hitCollider = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(pos));
@@ -37,7 +37,7 @@ public class ButtonConfig : MonoBehaviour
                 delay.Reset();
                 disabled = true;
                 pressCount--;
-                pressCountTxt.text = pressCount.ToString();
+                pressCountTxt.text = "";
                 gameConfig.SetCurrentColor(color);
                 render.sprite = btnPressedColors;
                 //Debug.Log("Color set: " + color);
@@ -50,10 +50,11 @@ public class ButtonConfig : MonoBehaviour
             }
         }
 
-        if (delay.IsReady && disabled == true && render.sprite != btnNoButton)
+        if (delay.IsReady && disabled == true && render.sprite != btnNoButton && gameConfig.GetCurrentColor() == "none")
         {
             disabled = false;
             render.sprite = btnColor;
+            pressCountTxt.text = pressCount.ToString();
         }
     }
 }
