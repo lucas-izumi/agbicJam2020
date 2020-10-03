@@ -12,7 +12,7 @@ public class ButtonConfig : MonoBehaviour
     public Sprite btnPressedColors;
     public Sprite btnNoButton;
     public Sprite btnColor;
-    private bool disabled;
+    public bool disabled;
     private Delay delay;
     public int pressCount;
     public Text pressCountTxt;
@@ -20,14 +20,14 @@ public class ButtonConfig : MonoBehaviour
     private void Start()
     {
         render = GetComponent<SpriteRenderer>();
-        disabled = false;
+        disabled = true;
         delay = new Delay(0.5f);
-        pressCount = 3; //MOCK, quem deve gerar esse numero é o gerador de levels
+        pressCount = 0;
         pressCountTxt.text = pressCount.ToString();
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && disabled == false && gameConfig.GetCurrentColor() == "none")
+        if (Input.GetMouseButtonDown(0) && disabled == false && gameConfig.GetCurrentColor() == "none" && gameConfig.TutorialMode == false)
         {
             Vector3 pos = Input.mousePosition;
             Collider2D hitCollider = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(pos));
@@ -40,14 +40,14 @@ public class ButtonConfig : MonoBehaviour
                 pressCountTxt.text = "";
                 gameConfig.SetCurrentColor(color);
                 render.sprite = btnPressedColors;
-                //Debug.Log("Color set: " + color);
+                Debug.Log("Color set: " + color);
             }
+        }
 
-            if (pressCount == 0)
-            {
-                render.sprite = btnNoButton;
-                pressCountTxt.text = "";
-            }
+        if (pressCount == 0)
+        {
+            render.sprite = btnNoButton;
+            pressCountTxt.text = "";
         }
 
         if (delay.IsReady && disabled == true && render.sprite != btnNoButton && gameConfig.GetCurrentColor() == "none")

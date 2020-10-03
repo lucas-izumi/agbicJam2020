@@ -17,14 +17,14 @@ public class SolveBoard : MonoBehaviour
     {
         blockCount = GameObject.FindGameObjectsWithTag("gameblock").Length;
         startMatching = false;
-        delay = new Delay(1.0f);
+        delay = new Delay(0.5f);
         interval = 0F;
         render = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && render.sprite != btnPressedSprite && gameConfig.TutorialMode == false)
         {
             Vector3 pos = Input.mousePosition;
             Collider2D hitCollider = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(pos));
@@ -41,11 +41,12 @@ public class SolveBoard : MonoBehaviour
             if (delay.IsReady)
             {
                 MatchAllBlocks();
+                delay.WaitTime = 1.0F;
                 delay.Reset();
 
                 // This is a really crappy way of ending the matching cycle
                 // The first time it checks for blocks moving, it's too fast so it doesnt register the block moving
-                // and this ends the cycle. in order to prevent that, I'm using a variable to check if moving blocks returned 0 twice (no blocks moving)
+                // and this ends the cycle. in order to prevent that, I'm using a variable to check if moving blocks returned 0 thrice (no blocks moving)
                 // if it does, that means the check is accurate so the board has reached a static state, meaning there are no more matches to be made
                 if (CheckStillBlocks() == 0F) //No blocks are moving
                 {
@@ -56,10 +57,10 @@ public class SolveBoard : MonoBehaviour
                     interval = 0F;
                 }
 
-                if (interval == 2F) //If no blocks were moving during 2 checks in a row
+                if (interval == 3F) //If no blocks were moving during 3 checks in a row
                 {
                     startMatching = false; //Stop the matching loop
-                    //Debug.Log("Matches ended!");
+                    Debug.Log("Matches ended!");
                 }
             }
         }

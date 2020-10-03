@@ -29,33 +29,37 @@ public class BlockClass : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && gameConfig.TutorialMode == false)
         {
             Vector3 pos = Input.mousePosition;
             Collider2D hitCollider = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(pos));
             if (hitCollider != null && hitCollider.gameObject.transform == transform)
             {
-                if (gameConfig.GetCurrentColor() == "red")
+                if (gameConfig.GetCurrentColor() == "red" && render.sprite != redSprite)
                 {
                     render.sprite = redSprite;
+                    gameConfig.SetCurrentColor("none");
                 }
-                else if (gameConfig.GetCurrentColor() == "yellow")
+                else if (gameConfig.GetCurrentColor() == "yellow" && render.sprite != yellowSprite)
                 {
                     render.sprite = yellowSprite;
+                    gameConfig.SetCurrentColor("none");
                 }
-                else if (gameConfig.GetCurrentColor() == "green")
+                else if (gameConfig.GetCurrentColor() == "green" && render.sprite != greenSprite)
                 {
                     render.sprite = greenSprite;
+                    gameConfig.SetCurrentColor("none");
                 }
-                else if (gameConfig.GetCurrentColor() == "blue")
+                else if (gameConfig.GetCurrentColor() == "blue" && render.sprite != blueSprite)
                 {
                     render.sprite = blueSprite;
+                    gameConfig.SetCurrentColor("none");
                 }
-                else if (gameConfig.GetCurrentColor() == "gray")
+                else if (gameConfig.GetCurrentColor() == "gray" && render.sprite != graySprite)
                 {
                     render.sprite = graySprite;
+                    gameConfig.SetCurrentColor("none");
                 }
-                gameConfig.SetCurrentColor("none");
             }
         }
     }

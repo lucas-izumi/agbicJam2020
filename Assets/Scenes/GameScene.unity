@@ -791,6 +791,7 @@ RectTransform:
   - {fileID: 1470229982}
   - {fileID: 1765165470}
   - {fileID: 1747651140}
+  - {fileID: 1090569737}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1042,6 +1043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 851253887}
   - component: {fileID: 851253886}
+  - component: {fileID: 851253888}
   m_Layer: 0
   m_Name: BalaoTxt
   m_TagString: Untagged
@@ -1114,6 +1116,103 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &851253888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851253885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 722a8b71483297f419fa0100643895e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speak: {fileID: 1090569738}
+  gameConfig: {fileID: 2008906779}
+  objArrow: {fileID: 1392655364237027454, guid: ffd4dc338f8362a4cb8b0a9d8dbe1939,
+    type: 3}
+  objArrowDown: {fileID: 1545895857700708266, guid: 6ca3d9624d95a124297bfc1450ed755f,
+    type: 3}
+--- !u!1 &1090569736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1090569737}
+  - component: {fileID: 1090569739}
+  - component: {fileID: 1090569738}
+  m_Layer: 5
+  m_Name: BonBonSpeak
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1090569737
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090569736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 575547124}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -359.5, y: 442.75}
+  m_SizeDelta: {x: 314.51508, y: 140.31494}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1090569738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090569736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 32
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Hello dearest volunteer!
+--- !u!222 &1090569739
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090569736}
+  m_CullTransparentMesh: 0
 --- !u!1 &1258312922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttontag: solver
-  gameConfig: {fileID: 0}
+  gameConfig: {fileID: 2008906779}
   btnPressedSprite: {fileID: 21300000, guid: ca03547e6e905c44994e6444f7a18afe, type: 3}
 --- !u!61 &1396915943
 BoxCollider2D:
@@ -1820,6 +1919,11 @@ MonoBehaviour:
   tile: {fileID: 2115174883561899087, guid: 9cf3a696a2f78174f990bf2a6a66a078, type: 3}
   xSize: 8
   ySize: 8
+  yellowSprite: {fileID: 21300000, guid: e512a2f7506767844ad466065a220f19, type: 3}
+  greenSprite: {fileID: 21300000, guid: 91101273ca155824fb68bfede06f845e, type: 3}
+  redSprite: {fileID: 21300000, guid: f1e3aa6b5fbf7f041af18eb63e3fbd51, type: 3}
+  blueSprite: {fileID: 21300000, guid: 518408109c361fc40965e08f82d11c21, type: 3}
+  graySprite: {fileID: 21300000, guid: f07b5e1f598ffb647a688b50368d65fc, type: 3}
 --- !u!4 &2008906778
 Transform:
   m_ObjectHideFlags: 0
@@ -1852,6 +1956,7 @@ MonoBehaviour:
   CurrentPoints: {fileID: 1355895633}
   Level: 0
   Points: 0
+  TutorialMode: 0
 --- !u!82 &2008906780
 AudioSource:
   m_ObjectHideFlags: 0
