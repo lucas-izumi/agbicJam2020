@@ -18,13 +18,13 @@ public class SolveBoard : MonoBehaviour
         blockCount = GameObject.FindGameObjectsWithTag("gameblock").Length;
         startMatching = false;
         delay = new Delay(0.5f);
-        interval = 0F;
+        ResetMatchingInterval();
         render = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && render.sprite != btnPressedSprite && gameConfig.TutorialMode == false)
+        if (Input.GetMouseButtonDown(0) && render.sprite != btnPressedSprite && gameConfig.LockGame == false)
         {
             Vector3 pos = Input.mousePosition;
             Collider2D hitCollider = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(pos));
@@ -64,6 +64,11 @@ public class SolveBoard : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ResetMatchingInterval()
+    {
+        interval = 0F;
     }
 
     private void MatchAllBlocks()

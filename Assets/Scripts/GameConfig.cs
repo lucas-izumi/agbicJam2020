@@ -11,16 +11,20 @@ public class GameConfig : MonoBehaviour
     public Text CurrentPoints;
     public int Level;
     public int Points;
-    public bool TutorialMode;
+    public bool LockGame;
 
     void Start()
     {
         CurrentColor = "none";
         BlocksDestroyed = 0;
-        Level = 0;
-        TutorialMode = true; //This must be checked on save file. If its already past tutorial, this should be false
+        Level = 1;
         //CurrentLevel.text = "LEVEL " + Level.ToString();
         CurrentPoints.text = Points.ToString();
+    }
+
+    public int GetCurrentLevel()
+    {
+        return Level;
     }
 
     public void SetCurrentColor(string color)

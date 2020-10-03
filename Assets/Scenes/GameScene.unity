@@ -457,9 +457,11 @@ GameObject:
   m_Component:
   - component: {fileID: 336332958}
   - component: {fileID: 336332957}
+  - component: {fileID: 336332959}
+  - component: {fileID: 336332960}
   m_Layer: 0
   m_Name: ResetBtn
-  m_TagString: Untagged
+  m_TagString: Reset Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -529,6 +531,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &336332959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336332956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10e3ba7ccf58d24ebcf9f75fd5bc5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Game: {fileID: 2008906779}
+  GameController: {fileID: 2008906777}
+  btnPressedSprite: {fileID: 21300000, guid: 62b7acda4e4780145a1fa5ebf3266e22, type: 3}
+  btnSprite: {fileID: 21300000, guid: 95ac629a285114048ada14403ca2bfe4, type: 3}
+--- !u!61 &336332960
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336332956}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.42, y: 1.25}
+    newSize: {x: 1.42, y: 1.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.42, y: 1.25}
+  m_EdgeRadius: 0
 --- !u!1 &414555689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,11 +1963,20 @@ MonoBehaviour:
   tile: {fileID: 2115174883561899087, guid: 9cf3a696a2f78174f990bf2a6a66a078, type: 3}
   xSize: 8
   ySize: 8
+  Game: {fileID: 2008906779}
+  MatchButton: {fileID: 1396915942}
   yellowSprite: {fileID: 21300000, guid: e512a2f7506767844ad466065a220f19, type: 3}
   greenSprite: {fileID: 21300000, guid: 91101273ca155824fb68bfede06f845e, type: 3}
   redSprite: {fileID: 21300000, guid: f1e3aa6b5fbf7f041af18eb63e3fbd51, type: 3}
   blueSprite: {fileID: 21300000, guid: 518408109c361fc40965e08f82d11c21, type: 3}
   graySprite: {fileID: 21300000, guid: f07b5e1f598ffb647a688b50368d65fc, type: 3}
+  yellowBtnSprite: {fileID: 21300000, guid: c9168028c902d7544b59b5c674233ec1, type: 3}
+  greenBtnSprite: {fileID: 21300000, guid: 38e0d042bcb127d40bd85838e2136116, type: 3}
+  redBtnSprite: {fileID: 21300000, guid: b113a4000dfcef8419083ef8d5c2e7bd, type: 3}
+  blueBtnSprite: {fileID: 21300000, guid: 9abb3ce5ae5973a48a546b2201461043, type: 3}
+  grayBtnSprite: {fileID: 21300000, guid: 82f360c4661be974f993692833144e57, type: 3}
+  btnMatch: {fileID: 21300000, guid: af66bd1bdf1c0ae4e89a948f2b0b09e0, type: 3}
+  Speak: {fileID: 1090569738}
 --- !u!4 &2008906778
 Transform:
   m_ObjectHideFlags: 0
@@ -1956,7 +2009,7 @@ MonoBehaviour:
   CurrentPoints: {fileID: 1355895633}
   Level: 0
   Points: 0
-  TutorialMode: 0
+  LockGame: 0
 --- !u!82 &2008906780
 AudioSource:
   m_ObjectHideFlags: 0

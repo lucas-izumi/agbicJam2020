@@ -29,7 +29,7 @@ public class BlockClass : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && gameConfig.TutorialMode == false)
+        if (Input.GetMouseButtonDown(0) && gameConfig.LockGame == false)
         {
             Vector3 pos = Input.mousePosition;
             Collider2D hitCollider = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(pos));

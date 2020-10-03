@@ -21,7 +21,7 @@ public class Tutorial : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && clickCount < 16)
+        if (Input.GetMouseButtonDown(0) && clickCount < 16 && gameConfig.Level == 0)
         {
             if (clickCount == 0)
                 Speak.text = "It seems it's your first time here, hiehiehie.";
@@ -67,7 +67,7 @@ public class Tutorial : MonoBehaviour
             else if (clickCount == 15)
             {
                 Destroy(arrows);
-                gameConfig.TutorialMode = false;
+                gameConfig.LockGame = false;
                 Speak.text = "EXPERIMENT START!!!";
                 //render.sprite = null;
             }
