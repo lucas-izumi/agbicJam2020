@@ -12,6 +12,7 @@ public class GameConfig : MonoBehaviour
     public int Level;
     public int Points;
     public bool LockGame;
+    public string GameStatus;
 
     void Start()
     {

@@ -59,9 +59,10 @@
     <Compile Include="Assets\Scripts\GameConfig.cs" />
     <Compile Include="Assets\Scripts\Delay.cs" />
     <Compile Include="Assets\Scripts\ButtonConfig.cs" />
+    <Compile Include="Assets\Scripts\Reset.cs" />
     <Compile Include="Assets\Scripts\SolveBoard.cs" />
     <Compile Include="Assets\Scripts\BlockClass.cs" />
-    <Compile Include="Assets\Scripts\Reset.cs" />
+    <Compile Include="Assets\Scripts\WinLose.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

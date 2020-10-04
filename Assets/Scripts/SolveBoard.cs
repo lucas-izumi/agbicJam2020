@@ -7,15 +7,15 @@ public class SolveBoard : MonoBehaviour
     public string buttontag;
     public GameConfig gameConfig;
     private bool startMatching;
-    private int blockCount;
     private Delay delay;
     private float interval;
     private SpriteRenderer render;
     public Sprite btnPressedSprite;
+    public GameObject WinMsg;
+    public GameObject LoseMsg;
 
     private void Start()
     {
-        blockCount = GameObject.FindGameObjectsWithTag("gameblock").Length;
         startMatching = false;
         delay = new Delay(0.5f);
         ResetMatchingInterval();
@@ -61,6 +61,19 @@ public class SolveBoard : MonoBehaviour
                 {
                     startMatching = false; //Stop the matching loop
                     Debug.Log("Matches ended!");
+
+                    int blockCount;
+                    blockCount = GameObject.FindGameObjectsWithTag("gameblock").Length;
+                    if (blockCount > 0) //Lost
+                    {
+                        gameConfig.GameStatus = "LOSE";
+                        Instantiate(LoseMsg, new Vector3(-4.78F, -0.79F, 0), transform.rotation);
+                    }
+                    else //Won
+                    {
+                        gameConfig.GameStatus = "WIN";
+                        Instantiate(WinMsg, new Vector3(-4.78F, -0.79F, 0), transform.rotation);
+                    }
                 }
             }
         }
