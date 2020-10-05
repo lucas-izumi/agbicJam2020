@@ -58,7 +58,6 @@ public class ButtonConfig : MonoBehaviour
             disabled = false;
             render.sprite = btnColor;
             pressCountTxt.text = pressCount.ToString();
-            gameObject.GetComponent<AudioSource>().PlayOneShot(bReleased, 1.0F);
         }
     }
 }

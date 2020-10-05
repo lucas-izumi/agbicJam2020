@@ -39,26 +39,31 @@ public class BlockClass : MonoBehaviour
                 {
                     render.sprite = redSprite;
                     gameConfig.SetCurrentColor("none");
+                    gameObject.GetComponent<AudioSource>().Play();
                 }
                 else if (gameConfig.GetCurrentColor() == "yellow" && render.sprite != yellowSprite)
                 {
                     render.sprite = yellowSprite;
                     gameConfig.SetCurrentColor("none");
+                    gameObject.GetComponent<AudioSource>().Play();
                 }
                 else if (gameConfig.GetCurrentColor() == "green" && render.sprite != greenSprite)
                 {
                     render.sprite = greenSprite;
                     gameConfig.SetCurrentColor("none");
+                    gameObject.GetComponent<AudioSource>().Play();
                 }
                 else if (gameConfig.GetCurrentColor() == "blue" && render.sprite != blueSprite)
                 {
                     render.sprite = blueSprite;
                     gameConfig.SetCurrentColor("none");
+                    gameObject.GetComponent<AudioSource>().Play();
                 }
                 else if (gameConfig.GetCurrentColor() == "gray" && render.sprite != graySprite)
                 {
                     render.sprite = graySprite;
                     gameConfig.SetCurrentColor("none");
+                    gameObject.GetComponent<AudioSource>().Play();
                 }
             }
         }
@@ -108,6 +113,7 @@ public class BlockClass : MonoBehaviour
             for (int i = 0; i < matchingTiles.Count; i++)
             {
                 gameConfig.BlocksDestroyed++;
+                gameConfig.calculatedPoints += 50;
                 Destroy(matchingTiles[i]);
             }
             audioData.Play();

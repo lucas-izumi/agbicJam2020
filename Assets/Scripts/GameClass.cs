@@ -75,7 +75,8 @@ public class GameClass : MonoBehaviour
     {
         if (!isSameLevel)
         {
-            Game.Level++;
+            if ((Game.Level + 1) <= Game.MaxLevel)
+                Game.Level++;
         }
         CreateLevel();
     }

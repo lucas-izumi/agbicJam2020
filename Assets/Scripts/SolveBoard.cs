@@ -68,11 +68,13 @@ public class SolveBoard : MonoBehaviour
                     if (gameConfig.BlockCount - gameConfig.BlocksDestroyed > 0) //Lost
                     {
                         gameConfig.GameStatus = "LOSE";
+                        gameConfig.retries++;
                         Instantiate(LoseMsg, new Vector3(-4.78F, -0.79F, 0), transform.rotation);
                     }
                     else //Won
                     {
                         gameConfig.GameStatus = "WIN";
+                        gameConfig.CalculatePoints();
                         Instantiate(WinMsg, new Vector3(-4.78F, -0.79F, 0), transform.rotation);
                     }
                 }

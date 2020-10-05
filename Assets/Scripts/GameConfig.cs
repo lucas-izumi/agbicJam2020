@@ -12,6 +12,9 @@ public class GameConfig : MonoBehaviour
     public Text CurrentPoints;
     public bool LockGame;
     public string GameStatus;
+    public int retries;
+    public int calculatedPoints;
+    public int MaxLevel;
 
     public int Level;
     public int Points;
@@ -23,10 +26,14 @@ public class GameConfig : MonoBehaviour
         CurrentColor = "none";
         BlocksDestroyed = 0;
         BlockCount = 0;
+        retries = 0;
+        calculatedPoints = 0;
         sData = save.LoadGame();
         Level = sData.saved_level;
         Points = sData.saved_points;
         CurrentPoints.text = Points.ToString();
+
+        MaxLevel = 1;
     }
 
     public int GetCurrentLevel()
@@ -42,5 +49,13 @@ public class GameConfig : MonoBehaviour
     public string GetCurrentColor()
     {
         return CurrentColor;
+    }
+
+    public void CalculatePoints()
+    {
+        int newpoints = calculatedPoints - (retries * 10);
+        if (newpoints > 0)
+            Points += newpoints;
+        CurrentPoints.text = Points.ToString();
     }
 }
