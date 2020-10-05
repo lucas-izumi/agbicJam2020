@@ -144,6 +144,7 @@ public class GameClass : MonoBehaviour
         GameObject newTile;
         newTile = Instantiate(tile, new Vector3(x, y, 0), transform.rotation);
         newTile.GetComponent<SpriteRenderer>().sprite = sprColor;
+        Game.BlockCount++;
     }
 
     void CreateRow(string colors, int rowNumber, int startingCol)
@@ -170,11 +171,16 @@ public class GameClass : MonoBehaviour
         {
             Destroy(block);
         }
+        Game.BlockCount = 0;
+        Game.BlocksDestroyed = 0;
     }
+
     void Tutorial()
     {
         Game.CurrentLevel.text = "TUTORIAL";
-        Game.LockGame = true;
+
+        if (Game.GameStatus != "LOSE")
+            Game.LockGame = true;
 
         SetButton("Red Button", 1, redBtnSprite);
 
@@ -182,6 +188,7 @@ public class GameClass : MonoBehaviour
         CreateRow("BRBRY", 1, 1);
         CreateRow("BRY", 2, 2);
         CreateRow("G", 3, 3);
+        Debug.Log("Tutorial block count: " + Game.BlockCount);
     }
 
     void Level1()
@@ -197,5 +204,6 @@ public class GameClass : MonoBehaviour
         CreateRow("RGRYY", 2, 0);
         CreateRow("B-BY", 3, 0);
         CreateRow("B--B", 4, 0);
+        Debug.Log("Level 1 block count: " + Game.BlockCount);
     }
 }

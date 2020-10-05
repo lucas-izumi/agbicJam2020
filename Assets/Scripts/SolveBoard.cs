@@ -61,10 +61,10 @@ public class SolveBoard : MonoBehaviour
                 {
                     startMatching = false; //Stop the matching loop
                     Debug.Log("Matches ended!");
+                    Debug.Log("Blocks left: " + gameConfig.BlockCount);
+                    Debug.Log("Blocks destroyed: " + gameConfig.BlocksDestroyed);
 
-                    int blockCount;
-                    blockCount = GameObject.FindGameObjectsWithTag("gameblock").Length;
-                    if (blockCount > 0) //Lost
+                    if (gameConfig.BlockCount - gameConfig.BlocksDestroyed > 0) //Lost
                     {
                         gameConfig.GameStatus = "LOSE";
                         Instantiate(LoseMsg, new Vector3(-4.78F, -0.79F, 0), transform.rotation);

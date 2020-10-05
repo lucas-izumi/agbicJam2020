@@ -60,9 +60,10 @@
     <Compile Include="Assets\Scripts\Delay.cs" />
     <Compile Include="Assets\Scripts\ButtonConfig.cs" />
     <Compile Include="Assets\Scripts\Reset.cs" />
+    <Compile Include="Assets\Scripts\WinLose.cs" />
     <Compile Include="Assets\Scripts\SolveBoard.cs" />
     <Compile Include="Assets\Scripts\BlockClass.cs" />
-    <Compile Include="Assets\Scripts\WinLose.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

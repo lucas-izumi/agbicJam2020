@@ -6,6 +6,7 @@ public class WinLose : MonoBehaviour
 {
     private GameConfig Game;
     private GameClass GameController;
+    private SaveSystem Save;
 
     private void Start()
     {
@@ -13,6 +14,7 @@ public class WinLose : MonoBehaviour
         Game = (GameConfig)Board.GetComponent(typeof(GameConfig));
         GameController = (GameClass)Board.GetComponent(typeof(GameClass));
         Game.LockGame = true;
+        Save = new SaveSystem();
     }
     void Update()
     {
@@ -20,7 +22,13 @@ public class WinLose : MonoBehaviour
         {
             Game.LockGame = false;
             if (Game.GameStatus == "WIN")
+            {
                 GameController.UpdateLevel(false);
+                SavedData data;
+                data.saved_level = Game.Level;
+                data.saved_points = Game.Points;
+                Save.SaveGame(data);
+            }
             else
                 GameController.UpdateLevel(true);
             Destroy(GameObject.FindGameObjectWithTag("Win or Lose"));

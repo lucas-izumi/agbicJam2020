@@ -127,6 +127,7 @@ public class BlockClass : MonoBehaviour
         {
             matchFound = false;
             gameConfig.BlocksDestroyed++;
+            Debug.Log("Blocks destroyed: " + gameConfig.BlocksDestroyed);
             Destroy(this.gameObject);
         }
     }
