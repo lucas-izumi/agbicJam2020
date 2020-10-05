@@ -27,6 +27,7 @@ public class Reset : MonoBehaviour
             {
                 render.sprite = btnPressedSprite;                
                 delay.Reset();
+                gameObject.GetComponent<AudioSource>().Play();
                 GameController.UpdateLevel(true);
             }
         }

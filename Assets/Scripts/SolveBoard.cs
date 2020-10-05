@@ -33,6 +33,7 @@ public class SolveBoard : MonoBehaviour
                 render.sprite = btnPressedSprite;
                 startMatching = true;
                 delay.Reset();
+                gameObject.GetComponent<AudioSource>().Play();
             }
         }
 

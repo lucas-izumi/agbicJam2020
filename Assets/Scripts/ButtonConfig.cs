@@ -16,6 +16,8 @@ public class ButtonConfig : MonoBehaviour
     private Delay delay;
     public int pressCount;
     public Text pressCountTxt;
+    public AudioClip bPress;
+    public AudioClip bReleased;
 
     private void Start()
     {
@@ -40,6 +42,7 @@ public class ButtonConfig : MonoBehaviour
                 pressCountTxt.text = "";
                 gameConfig.SetCurrentColor(color);
                 render.sprite = btnPressedColors;
+                gameObject.GetComponent<AudioSource>().PlayOneShot(bPress, 1.0F);
                 Debug.Log("Color set: " + color);
             }
         }
@@ -55,6 +58,7 @@ public class ButtonConfig : MonoBehaviour
             disabled = false;
             render.sprite = btnColor;
             pressCountTxt.text = pressCount.ToString();
+            gameObject.GetComponent<AudioSource>().PlayOneShot(bReleased, 1.0F);
         }
     }
 }

@@ -16,6 +16,7 @@ TagManager:
   - gameblock
   - Reset Button
   - Win or Lose
+  - Exit Game
   layers:
   - Default
   - TransparentFX
