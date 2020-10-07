@@ -113,7 +113,7 @@ public class BlockClass : MonoBehaviour
             for (int i = 0; i < matchingTiles.Count; i++)
             {
                 gameConfig.BlocksDestroyed++;
-                gameConfig.calculatedPoints += 50;
+                gameConfig.calculatedPoints += 5;
                 Destroy(matchingTiles[i]);
             }
             audioData.Play();

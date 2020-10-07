@@ -33,7 +33,7 @@ public class GameConfig : MonoBehaviour
         Points = sData.saved_points;
         CurrentPoints.text = Points.ToString();
 
-        MaxLevel = 1;
+        MaxLevel = 4;
     }
 
     public int GetCurrentLevel()
@@ -53,7 +53,7 @@ public class GameConfig : MonoBehaviour
 
     public void CalculatePoints()
     {
-        int newpoints = calculatedPoints - (retries * 10);
+        int newpoints = calculatedPoints - (retries);
         if (newpoints > 0)
             Points += newpoints;
         CurrentPoints.text = Points.ToString();

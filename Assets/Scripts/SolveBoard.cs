@@ -13,12 +13,14 @@ public class SolveBoard : MonoBehaviour
     public Sprite btnPressedSprite;
     public GameObject WinMsg;
     public GameObject LoseMsg;
+    private bool checkRemaining;
 
     private void Start()
     {
         startMatching = false;
         delay = new Delay(0.5f);
         ResetMatchingInterval();
+        checkRemaining = false;
         render = GetComponent<SpriteRenderer>();
     }
 
@@ -34,6 +36,26 @@ public class SolveBoard : MonoBehaviour
                 startMatching = true;
                 delay.Reset();
                 gameObject.GetComponent<AudioSource>().Play();
+            }
+        }
+
+        if (checkRemaining)
+        {
+            //Object destruction only happens after the current Update cycle, so this check is being done after the matches cycle
+            checkRemaining = false;
+            Debug.Log("Remaining Blocks: " + GameObject.FindGameObjectsWithTag("gameblock").Length);
+
+            if (GameObject.FindGameObjectsWithTag("gameblock").Length > 0) //Lost
+            {
+                gameConfig.GameStatus = "LOSE";
+                gameConfig.retries++;
+                Instantiate(LoseMsg, new Vector3(-4.78F, -0.79F, 0), transform.rotation);
+            }
+            else //Won
+            {
+                gameConfig.GameStatus = "WIN";
+                gameConfig.CalculatePoints();
+                Instantiate(WinMsg, new Vector3(-4.78F, -0.79F, 0), transform.rotation);
             }
         }
 
@@ -62,21 +84,7 @@ public class SolveBoard : MonoBehaviour
                 {
                     startMatching = false; //Stop the matching loop
                     Debug.Log("Matches ended!");
-                    Debug.Log("Blocks left: " + gameConfig.BlockCount);
-                    Debug.Log("Blocks destroyed: " + gameConfig.BlocksDestroyed);
-
-                    if (gameConfig.BlockCount - gameConfig.BlocksDestroyed > 0) //Lost
-                    {
-                        gameConfig.GameStatus = "LOSE";
-                        gameConfig.retries++;
-                        Instantiate(LoseMsg, new Vector3(-4.78F, -0.79F, 0), transform.rotation);
-                    }
-                    else //Won
-                    {
-                        gameConfig.GameStatus = "WIN";
-                        gameConfig.CalculatePoints();
-                        Instantiate(WinMsg, new Vector3(-4.78F, -0.79F, 0), transform.rotation);
-                    }
+                    checkRemaining = true;
                 }
             }
         }

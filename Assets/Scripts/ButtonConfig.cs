@@ -43,7 +43,7 @@ public class ButtonConfig : MonoBehaviour
                 gameConfig.SetCurrentColor(color);
                 render.sprite = btnPressedColors;
                 gameObject.GetComponent<AudioSource>().PlayOneShot(bPress, 1.0F);
-                Debug.Log("Color set: " + color);
+                //Debug.Log("Color set: " + color);
             }
         }
 
