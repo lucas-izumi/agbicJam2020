@@ -54,17 +54,20 @@
     <UnityVersion>2020.1.2f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Help.cs" />
     <Compile Include="Assets\Scripts\Tutorial.cs" />
     <Compile Include="Assets\Scripts\GameClass.cs" />
     <Compile Include="Assets\Scripts\GameConfig.cs" />
+    <Compile Include="Assets\Scripts\ExitHelp.cs" />
     <Compile Include="Assets\Scripts\Delay.cs" />
     <Compile Include="Assets\Scripts\ButtonConfig.cs" />
     <Compile Include="Assets\Scripts\Reset.cs" />
     <Compile Include="Assets\Scripts\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\WinLose.cs" />
     <Compile Include="Assets\Scripts\SolveBoard.cs" />
-    <Compile Include="Assets\Scripts\BlockClass.cs" />
     <Compile Include="Assets\Scripts\ExitGame.cs" />
+    <Compile Include="Assets\Scripts\BlockClass.cs" />
+    <Compile Include="Assets\Scripts\TwitterButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

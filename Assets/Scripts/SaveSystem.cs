@@ -24,11 +24,11 @@ public class SaveSystem
         else
             file = File.Create(destination);
 
-        Debug.Log("Saving level: " + info.saved_level);
-        Debug.Log("Saving points: " + info.saved_points);
+        //Debug.Log("Saving level: " + info.saved_level);
+        //Debug.Log("Saving points: " + info.saved_points);
         bf.Serialize(file, info);
         file.Close();
-        Debug.Log("Game Saved");
+        //Debug.Log("Game Saved");
     }
 
     public SavedData LoadGame()
@@ -51,8 +51,8 @@ public class SaveSystem
         data = (SavedData)bf.Deserialize(file);
         file.Close();
 
-        Debug.Log("Level loaded: " + data.saved_level);
-        Debug.Log("Points loaded: " + data.saved_points);
+        //Debug.Log("Level loaded: " + data.saved_level);
+        //Debug.Log("Points loaded: " + data.saved_points);
         return data;
     }
 }

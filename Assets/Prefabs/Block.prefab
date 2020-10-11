@@ -104,6 +104,8 @@ MonoBehaviour:
   yellowSprite: {fileID: 21300000, guid: e512a2f7506767844ad466065a220f19, type: 3}
   blueSprite: {fileID: 21300000, guid: 518408109c361fc40965e08f82d11c21, type: 3}
   graySprite: {fileID: 21300000, guid: f07b5e1f598ffb647a688b50368d65fc, type: 3}
+  matchSound: {fileID: 8300000, guid: 5fb6491de629c384894c1f7d17cdfcd1, type: 3}
+  graySound: {fileID: 8300000, guid: 00e1400e25f509b40b5482bf0d2b8870, type: 3}
 --- !u!50 &6260833151085231896
 Rigidbody2D:
   serializedVersion: 4

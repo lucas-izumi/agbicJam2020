@@ -94,6 +94,10 @@ public class GameClass : MonoBehaviour
         else if (level == 4) { Level4(); }
         else if (level == 5) { Level5(); }
         else if (level == 6) { Level6(); }
+        else if (level == 7) { Level7(); }
+        else if (level == 8) { Level8(); }
+        else if (level == 9) { Level9(); }
+        else if (level == 10) { Level10(); }
     }
 
     void SetButton(string buttonTag, int buttonPressCount, Sprite btnSprite)
@@ -215,7 +219,7 @@ public class GameClass : MonoBehaviour
         Debug.Log("Level 1 block count: " + Game.BlockCount);
     }
 
-    void Level2() //TODO
+    void Level2()
     {
         Game.CurrentLevel.text = "LEVEL 2";
         Speak.text = "Don't panic! Take it easy.";
@@ -266,19 +270,28 @@ public class GameClass : MonoBehaviour
         Debug.Log("Level 4 block count: " + Game.BlockCount);
     }
 
-    void Level5() //TODO, sem button gray, apenas blocos
+    void Level5()
     {
         Game.CurrentLevel.text = "LEVEL 5";
-        Speak.text = "Gray blocks vanish when you push the Match Button. Stay aware!";
+        Speak.text = "Gray blocks vanish when you push the Match Button, ok?";
 
-        
+        SetButton("Yellow Button", 2, yellowBtnSprite);
+        SetButton("Red Button", 1, redBtnSprite);
+        SetButton("Blue Button", 1, blueBtnSprite);
+
+        CreateRow("YXXBYYX", 0, 0);
+        CreateRow("-GYRRXG", 1, 0);
+        CreateRow("-X-B-RR", 2, 0);
+        CreateRow("-Y-G", 3, 0);
+        CreateRow("-Y", 4, 0);
+
         Debug.Log("Level 5 block count: " + Game.BlockCount);
     }
 
     void Level6()
     {
         Game.CurrentLevel.text = "LEVEL 6";
-        Speak.text = "You know you don't have to press all the buttons, right?";
+        Speak.text = "You don't have to press all the buttons, you know?";
 
         SetButton("Green Button", 1, greenBtnSprite);
         SetButton("Red Button", 2, redBtnSprite);
@@ -293,5 +306,87 @@ public class GameClass : MonoBehaviour
         CreateRow("-----R--", 6, 0);
         CreateRow("-----B--", 7, 0);
         Debug.Log("Level 6 block count: " + Game.BlockCount);
+    }
+
+    void Level7()
+    {
+        Game.CurrentLevel.text = "LEVEL 7";
+        Speak.text = "Oh, more of that weird Gray blocks!";
+
+        SetButton("Green Button", 2, greenBtnSprite);
+        SetButton("Red Button", 2, redBtnSprite);
+        SetButton("Yellow Button", 1, yellowBtnSprite);
+
+        CreateRow("RGXXGRXY", 0, 0);
+        CreateRow("GXGGRXYY", 1, 0);
+        CreateRow("XYRR-GYG", 2, 0);
+        CreateRow("R--R-G-G", 3, 0);
+
+        Debug.Log("Level 7 block count: " + Game.BlockCount);
+    }
+
+    void Level8()
+    {
+        Game.CurrentLevel.text = "LEVEL 8";
+        Speak.text = "I made a special button so you can also turn blocks gray!";
+
+        SetButton("Green Button", 1, greenBtnSprite);
+        SetButton("Blue Button", 3, blueBtnSprite);
+        SetButton("Yellow Button", 3, yellowBtnSprite);
+        SetButton("Gray Button", 2, grayBtnSprite);
+
+        CreateRow("BGBYGBRG", 0, 0);
+        CreateRow("RBYBRYYB", 1, 0);
+        CreateRow("-BBGGBYR", 2, 0);
+        CreateRow("-RYRYYGY", 3, 0);
+        CreateRow("--G--R-B", 4, 0);
+        CreateRow("--R", 5, 0);
+
+        Debug.Log("Level 8 block count: " + Game.BlockCount);
+    }
+
+    void Level9()
+    {
+        Game.CurrentLevel.text = "LEVEL 9";
+        Speak.text = "So many blocks!";
+
+        SetButton("Green Button", 1, greenBtnSprite);
+        SetButton("Blue Button", 2, blueBtnSprite);
+        SetButton("Yellow Button", 3, yellowBtnSprite);
+        SetButton("Gray Button", 2, grayBtnSprite);
+        SetButton("Red Button", 1, redBtnSprite);
+
+        CreateRow("RRYYRRGY", 0, 0);
+        CreateRow("XBGGXYXG", 1, 0);
+        CreateRow("BGBYGGXG", 2, 0);
+        CreateRow("-BYXRXYR", 3, 0);
+        CreateRow("-XG--BY", 4, 0);
+        CreateRow("-G----R", 5, 0);
+        CreateRow("-G", 6, 0);
+
+        Debug.Log("Level 9 block count: " + Game.BlockCount);
+    }
+
+    void Level10()
+    {
+        Game.CurrentLevel.text = "LEVEL 10";
+        Speak.text = "This is my final challenge to you! For now...";
+
+        SetButton("Green Button", 5, greenBtnSprite);
+        SetButton("Blue Button", 5, blueBtnSprite);
+        SetButton("Yellow Button", 5, yellowBtnSprite);
+        SetButton("Gray Button", 5, grayBtnSprite);
+        SetButton("Red Button", 5, redBtnSprite);
+
+        CreateRow("RRGXYRYY", 0, 0);
+        CreateRow("RBXYXRBY", 1, 0);
+        CreateRow("BRBXYGBR", 2, 0);
+        CreateRow("GBYYGRGB", 3, 0);
+        CreateRow("GYBRGGRX", 4, 0);
+        CreateRow("BRYYRBYX", 5, 0);
+        CreateRow("RBRRGYGY", 6, 0);
+        CreateRow("GRBXRGYG", 7, 0);
+
+        Debug.Log("Level 10 block count: " + Game.BlockCount);
     }
 }

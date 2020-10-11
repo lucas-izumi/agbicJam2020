@@ -34,6 +34,7 @@ public class SolveBoard : MonoBehaviour
             {
                 render.sprite = btnPressedSprite;
                 startMatching = true;
+                gameConfig.LockGame = true;
                 delay.Reset();
                 gameObject.GetComponent<AudioSource>().Play();
             }
@@ -49,13 +50,13 @@ public class SolveBoard : MonoBehaviour
             {
                 gameConfig.GameStatus = "LOSE";
                 gameConfig.retries++;
-                Instantiate(LoseMsg, new Vector3(-4.78F, -0.79F, 0), transform.rotation);
+                Instantiate(LoseMsg, new Vector3(0, 0, 0), transform.rotation);
             }
             else //Won
             {
                 gameConfig.GameStatus = "WIN";
                 gameConfig.CalculatePoints();
-                Instantiate(WinMsg, new Vector3(-4.78F, -0.79F, 0), transform.rotation);
+                Instantiate(WinMsg, new Vector3(0, 0, 0), transform.rotation);
             }
         }
 
@@ -69,7 +70,7 @@ public class SolveBoard : MonoBehaviour
 
                 // This is a really crappy way of ending the matching cycle
                 // The first time it checks for blocks moving, it's too fast so it doesnt register the block moving
-                // and this ends the cycle. in order to prevent that, I'm using a variable to check if moving blocks returned 0 thrice (no blocks moving)
+                // and this ends the cycle. in order to prevent that, I'm using a variable to check if moving blocks returned 0 four times (no blocks moving)
                 // if it does, that means the check is accurate so the board has reached a static state, meaning there are no more matches to be made
                 if (CheckStillBlocks() == 0F) //No blocks are moving
                 {
@@ -80,11 +81,12 @@ public class SolveBoard : MonoBehaviour
                     interval = 0F;
                 }
 
-                if (interval == 3F) //If no blocks were moving during 3 checks in a row
+                if (interval == 4F) //If no blocks were moving during 4 checks in a row
                 {
                     startMatching = false; //Stop the matching loop
                     Debug.Log("Matches ended!");
                     checkRemaining = true;
+                    gameConfig.LockGame = false;
                 }
             }
         }

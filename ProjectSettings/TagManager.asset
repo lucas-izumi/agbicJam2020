@@ -17,6 +17,9 @@ TagManager:
   - Reset Button
   - Win or Lose
   - Exit Game
+  - Help Button
+  - Help Screen
+  - Twitter Button
   layers:
   - Default
   - TransparentFX

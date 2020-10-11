@@ -10,6 +10,8 @@ public class BlockClass : MonoBehaviour
     public Sprite yellowSprite;
     public Sprite blueSprite;
     public Sprite graySprite;
+    public AudioClip matchSound;
+    public AudioClip graySound;
 
     private SpriteRenderer render;
     private Vector2[] adjacentDirections = new Vector2[] { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
@@ -39,31 +41,31 @@ public class BlockClass : MonoBehaviour
                 {
                     render.sprite = redSprite;
                     gameConfig.SetCurrentColor("none");
-                    gameObject.GetComponent<AudioSource>().Play();
+                    gameObject.GetComponent<AudioSource>().PlayOneShot(matchSound);
                 }
                 else if (gameConfig.GetCurrentColor() == "yellow" && render.sprite != yellowSprite)
                 {
                     render.sprite = yellowSprite;
                     gameConfig.SetCurrentColor("none");
-                    gameObject.GetComponent<AudioSource>().Play();
+                    gameObject.GetComponent<AudioSource>().PlayOneShot(matchSound);
                 }
                 else if (gameConfig.GetCurrentColor() == "green" && render.sprite != greenSprite)
                 {
                     render.sprite = greenSprite;
                     gameConfig.SetCurrentColor("none");
-                    gameObject.GetComponent<AudioSource>().Play();
+                    gameObject.GetComponent<AudioSource>().PlayOneShot(matchSound);
                 }
                 else if (gameConfig.GetCurrentColor() == "blue" && render.sprite != blueSprite)
                 {
                     render.sprite = blueSprite;
                     gameConfig.SetCurrentColor("none");
-                    gameObject.GetComponent<AudioSource>().Play();
+                    gameObject.GetComponent<AudioSource>().PlayOneShot(matchSound);
                 }
                 else if (gameConfig.GetCurrentColor() == "gray" && render.sprite != graySprite)
                 {
                     render.sprite = graySprite;
                     gameConfig.SetCurrentColor("none");
-                    gameObject.GetComponent<AudioSource>().Play();
+                    gameObject.GetComponent<AudioSource>().PlayOneShot(matchSound);
                 }
             }
         }
@@ -133,7 +135,7 @@ public class BlockClass : MonoBehaviour
         {
             matchFound = false;
             gameConfig.BlocksDestroyed++;
-            Debug.Log("Blocks destroyed: " + gameConfig.BlocksDestroyed);
+            //Debug.Log("Blocks destroyed: " + gameConfig.BlocksDestroyed);
             Destroy(this.gameObject);
         }
     }
@@ -142,6 +144,7 @@ public class BlockClass : MonoBehaviour
     {
         if (render.sprite == graySprite)
         {
+            audioData.PlayOneShot(graySound, 0.1F);
             Destroy(this.gameObject);
         }
     }
