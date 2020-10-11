@@ -14,7 +14,7 @@ public class GameConfig : MonoBehaviour
     public string GameStatus;
     public int retries;
     public int calculatedPoints;
-    public int MaxLevel;
+    private const int MaxLevel = 10;
 
     public int Level;
     public int Points;
@@ -32,8 +32,6 @@ public class GameConfig : MonoBehaviour
         Level = sData.saved_level;
         Points = sData.saved_points;
         CurrentPoints.text = Points.ToString();
-
-        MaxLevel = 10;
     }
 
     public int GetCurrentLevel()
@@ -49,6 +47,11 @@ public class GameConfig : MonoBehaviour
     public string GetCurrentColor()
     {
         return CurrentColor;
+    }
+
+    public int GetMaxLevel()
+    {
+        return MaxLevel;
     }
 
     public void CalculatePoints()

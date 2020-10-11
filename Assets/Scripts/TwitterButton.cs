@@ -26,8 +26,12 @@ public class TwitterButton : MonoBehaviour
             Collider2D hitCollider = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(pos));
             if (hitCollider != null && hitCollider.CompareTag("Twitter Button"))
             {
-
-                Share("I'm playing Dr. Bon Bon Puzzle and am at Level " + Game.Level + " with " + Game.Points + " points! Play the game here: https://randoman.itch.io/dr-bon-bon-puzzle #agbic #drbonbon", "", "", "en");
+                string twitterText;
+                if (Game.Level == -1)
+                    twitterText = "I cleared all of Dr. Bon Bon's puzzles with a score of " + Game.Points + " points! Play the game here: https://randoman.itch.io/dr-bon-bon-puzzle #agbic #drbonbon";
+                else
+                    twitterText = "I'm playing Dr. Bon Bon Puzzle and am at Level " + Game.Level + " with " + Game.Points + " points! Play the game here: https://randoman.itch.io/dr-bon-bon-puzzle #agbic #drbonbon";
+                Share(twitterText, "", "", "en");
                 Debug.Log("Twitter Button Pressed...");
             }
         }

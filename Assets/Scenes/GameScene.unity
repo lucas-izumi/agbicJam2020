@@ -1599,6 +1599,7 @@ MonoBehaviour:
   btnPressedSprite: {fileID: 21300000, guid: ca03547e6e905c44994e6444f7a18afe, type: 3}
   WinMsg: {fileID: 3290988869869397235, guid: 0dc5e69c2318add49826e0855e0028c3, type: 3}
   LoseMsg: {fileID: 3693409622222941517, guid: a5a4bc69f924d164baf03990ebc11239, type: 3}
+  Speak: {fileID: 1090569738}
 --- !u!61 &1396915943
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2314,7 +2315,6 @@ MonoBehaviour:
   GameStatus: 
   retries: 0
   calculatedPoints: 0
-  MaxLevel: 0
   Level: 0
   Points: 0
 --- !u!82 &2008906780

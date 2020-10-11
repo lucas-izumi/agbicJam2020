@@ -73,10 +73,19 @@ public class GameClass : MonoBehaviour
 
     public void UpdateLevel(bool isSameLevel)
     {
+        if (Game.Level == -1)
+        {
+            Game.Level = 0;
+            Game.Points = 0;
+            Game.CurrentPoints.text = Game.Points.ToString();
+        }
+
         if (!isSameLevel)
         {
-            if ((Game.Level + 1) <= Game.MaxLevel)
+            if ((Game.Level + 1) <= Game.GetMaxLevel())
                 Game.Level++;
+            else
+                Game.Level = -1;
         }
         CreateLevel();
     }
@@ -98,6 +107,7 @@ public class GameClass : MonoBehaviour
         else if (level == 8) { Level8(); }
         else if (level == 9) { Level9(); }
         else if (level == 10) { Level10(); }
+        else if (level == -1) { LevelLast(); }
     }
 
     void SetButton(string buttonTag, int buttonPressCount, Sprite btnSprite)
@@ -193,6 +203,8 @@ public class GameClass : MonoBehaviour
 
         if (Game.GameStatus != "LOSE")
             Game.LockGame = true;
+        else
+            Speak.text = "EXPERIMENT START!!!";
 
         SetButton("Red Button", 1, redBtnSprite);
 
@@ -370,13 +382,13 @@ public class GameClass : MonoBehaviour
     void Level10()
     {
         Game.CurrentLevel.text = "LEVEL 10";
-        Speak.text = "This is my final challenge to you! For now...";
+        Speak.text = "This is my final challenge for you! For now...";
 
         SetButton("Green Button", 5, greenBtnSprite);
-        SetButton("Blue Button", 5, blueBtnSprite);
-        SetButton("Yellow Button", 5, yellowBtnSprite);
+        SetButton("Blue Button", 3, blueBtnSprite);
+        SetButton("Yellow Button", 3, yellowBtnSprite);
         SetButton("Gray Button", 5, grayBtnSprite);
-        SetButton("Red Button", 5, redBtnSprite);
+        SetButton("Red Button", 2, redBtnSprite);
 
         CreateRow("RRGXYRYY", 0, 0);
         CreateRow("RBXYXRBY", 1, 0);
@@ -385,8 +397,14 @@ public class GameClass : MonoBehaviour
         CreateRow("GYBRGGRX", 4, 0);
         CreateRow("BRYYRBYX", 5, 0);
         CreateRow("RBRRGYGY", 6, 0);
-        CreateRow("GRBXRGYG", 7, 0);
+        CreateRow("GXBXRGYG", 7, 0);
 
         Debug.Log("Level 10 block count: " + Game.BlockCount);
+    }
+
+    void LevelLast()
+    {
+        Game.CurrentLevel.text = "GAME OVER";
+        Speak.text = "If you wanna play again, hit the reset button!";
     }
 }

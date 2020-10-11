@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SolveBoard : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class SolveBoard : MonoBehaviour
     public GameObject WinMsg;
     public GameObject LoseMsg;
     private bool checkRemaining;
+    public Text Speak;
 
     private void Start()
     {
@@ -37,6 +39,7 @@ public class SolveBoard : MonoBehaviour
                 gameConfig.LockGame = true;
                 delay.Reset();
                 gameObject.GetComponent<AudioSource>().Play();
+                Speak.text = "Checking solution...";
             }
         }
 
@@ -51,12 +54,14 @@ public class SolveBoard : MonoBehaviour
                 gameConfig.GameStatus = "LOSE";
                 gameConfig.retries++;
                 Instantiate(LoseMsg, new Vector3(0, 0, 0), transform.rotation);
+                Speak.text = "Not quite, but I know you can do it!";
             }
             else //Won
             {
                 gameConfig.GameStatus = "WIN";
                 gameConfig.CalculatePoints();
                 Instantiate(WinMsg, new Vector3(0, 0, 0), transform.rotation);
+                Speak.text = "AMAZING!!!";
             }
         }
 
